@@ -1,6 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
+import Home from './components/Home.js';
+import Login from './components/Login.js';
+import PrivateRoute from './components/PrivateRoute.js';
+import Friends from './components/Friends.js';
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -21,6 +26,10 @@ function App() {
             </li>
           </ul>
         </nav>
+
+        <Route exact path='/' component={Home}/>
+        <Route path='/login' component={Login}/>
+        <PrivateRoute exact path="/protected" component={Friends}/>
     </div>
     </Router>
   );
