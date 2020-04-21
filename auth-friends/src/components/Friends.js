@@ -20,7 +20,7 @@ const Friends = props =>{
             setId(res.data.length+1)
         })
         .catch(err => console.log({ err }));
-    },[friends])
+    },[])
     
      const handleChange = event => {
         setAddFriend({ ...addFriend, [event.target.name]: event.target.value })
@@ -30,7 +30,7 @@ const Friends = props =>{
     const deleteFriend = id =>{
         axiosWithAuth()
         .delete(`/api/friends/${id}`)
-        .then(res => console.log(res))
+        .then(res => window.location.reload())
         .catch(err => console.log(err))
     }
 
@@ -42,7 +42,7 @@ const Friends = props =>{
         event.preventDefault()
         axiosWithAuth()
         .post('/api/friends', addFriend)
-        .then(res => console.log(res))
+        .then(res => window.location.reload())
         .catch(err => console.log(err))
     }
 

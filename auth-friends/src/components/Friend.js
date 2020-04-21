@@ -15,7 +15,10 @@ const Friend = props => {
         event.preventDefault();
         axiosWithAuth()
         .put(`/api/friends/${props.friend.id}`, editFriend)
-        .then(res => setEdit(false))
+        .then(res => {
+            setEdit(false);
+            window.location.reload();
+        })
         .catch(err =>console.log(err))
 
     }
