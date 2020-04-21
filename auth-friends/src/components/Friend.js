@@ -14,7 +14,7 @@ const Friend = props => {
     const submitEdit = event =>{
         event.preventDefault();
         axiosWithAuth()
-        .put(`/api/friends/1`, editFriend)
+        .put(`/api/friends/${props.friend.id}`, editFriend)
         .then(res => setEdit(false))
         .catch(err =>console.log(err))
 
@@ -46,7 +46,7 @@ const Friend = props => {
                 </div>
                 <div className='edit-buttons'>
                 <button onClick={ submitEdit}>Submit</button>
-                <button onClick={() => setEdit(!edit)}> Edit</button>
+                <button onClick={() => setEdit(!edit)}> Cancel </button>
                 </div>
             </form>
 
