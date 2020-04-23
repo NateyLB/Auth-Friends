@@ -1,0 +1,116 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.Nav{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.NavList{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-content: center;
+  width: 100%;
+}
+
+.Nav li{
+  margin: 0 2%;
+  list-style: none;
+}
+
+.Nav li a{
+  text-decoration: none;
+  color: black
+}
+
+.Nav li a:hover{
+ text-transform: uppercase;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  height: 15vh;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.submit{
+  width: 5%;
+}
+
+.submit-friend-button{
+  width: 50%;
+}
+
+.friends-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.friend-card{
+  border: 1px solid black;
+  width: 30%;
+  margin: 1% 0;
+}
+
+.friend-card{
+  border: 1px solid black;
+  width: 30%;
+  margin: 1% 0;
+}
+
+.edit-buttons{
+  display:flex
+}
+
+.edit-input{
+  display: flex;
+  align-items: center;
+  height: 50px;
+
+}
+
+.edit-input input {
+  height: 2.5vh;
+}
