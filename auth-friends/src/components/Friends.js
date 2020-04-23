@@ -22,22 +22,24 @@ const Friends = props =>{
         .catch(err => console.log({ err }));
     },[])
     
+    //handles form changes and makes sure they are inputted to before submitting
      const handleChange = event => {
         setAddFriend({ ...addFriend, [event.target.name]: event.target.value })
         if( addFriend.name.length>0 && addFriend.age.length>0 && addFriend.email.length>0 ){
             setButtonEnable(false)}
     };
+    //deletes a selected friend through .delete request
     const deleteFriend = id =>{
         axiosWithAuth()
         .delete(`/api/friends/${id}`)
         .then(res => setFriends(res.data))
         .catch(err => console.log(err))
     }
-
+    //returns an array of friend cards
     const makeFriendsCards = ()=>{
        return friends.map(element => <Friend friend={element} setFriends={setFriends} deleteFriend={deleteFriend} key={element.id}/>)
     }
-
+    //submits a new friend through a .post request
     const submitFriend = event =>{
         event.preventDefault()
         axiosWithAuth()
@@ -47,6 +49,7 @@ const Friends = props =>{
     }
 
     return(
+        //renders friends card and a form to add a friends
         <div className='friends-container'>
             {makeFriendsCards()}
             <h3>Add a Friend</h3>

@@ -4,13 +4,17 @@ import { axiosWithAuth } from '../utils/axiosWithAuth.js'
 
 const Friend = props => {
 
+    //state for our editted friend
     const [editFriend, setEditFriend] = useState({ name: props.friend.name, age: props.friend.age, email: props.friend.email })
+    //state for out edit, false is not editing true is editing
     const [edit, setEdit] = useState(false)
+    //handle form changes
     const handleChange = event => {
         setEditFriend({ ...editFriend, [event.target.name]: event.target.value })
         console.log({editFriend})
     };
 
+    //submits the editted movie through a .put request
     const submitEdit = event =>{
         event.preventDefault();
         axiosWithAuth()
@@ -26,6 +30,7 @@ const Friend = props => {
 
 
     return (
+        //renders movie card if edit is false and a form if it is true
         edit === false ?
             <div className='friend-card'>
                 <h3>Name: {props.friend.name}</h3>
