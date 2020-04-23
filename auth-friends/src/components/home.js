@@ -5,7 +5,7 @@ const Home = props =>{
 
     return(
         <div>
-            <h1>Wellcome to Auth Friends</h1>
+            <h1>Welcome to Auth Friends</h1>
             <Link to="/login">
                 <button>Log In!</button>
             </Link>

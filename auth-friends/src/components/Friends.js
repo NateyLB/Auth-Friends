@@ -30,19 +30,19 @@ const Friends = props =>{
     const deleteFriend = id =>{
         axiosWithAuth()
         .delete(`/api/friends/${id}`)
-        .then(res => window.location.reload())
+        .then(res => setFriends(res.data))
         .catch(err => console.log(err))
     }
 
     const makeFriendsCards = ()=>{
-       return friends.map(element => <Friend friend={element} deleteFriend={deleteFriend} key={element.id}/>)
+       return friends.map(element => <Friend friend={element} setFriends={setFriends} deleteFriend={deleteFriend} key={element.id}/>)
     }
 
     const submitFriend = event =>{
         event.preventDefault()
         axiosWithAuth()
         .post('/api/friends', addFriend)
-        .then(res => window.location.reload())
+        .then(res => setFriends(res.data))
         .catch(err => console.log(err))
     }
 

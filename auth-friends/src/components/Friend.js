@@ -17,7 +17,7 @@ const Friend = props => {
         .put(`/api/friends/${props.friend.id}`, editFriend)
         .then(res => {
             setEdit(false);
-            window.location.reload();
+            props.setFriends(res.data)
         })
         .catch(err =>console.log(err))
 
@@ -37,15 +37,15 @@ const Friend = props => {
             <form className='friend-card friends-container'>
                 <div className='edit-input'>
                     <h3>Name: </h3>
-                    <input type='text' name='name' onChange={handleChange} />
+                    <input type='text' name='name' placeholder={props.friend.name} onChange={handleChange} />
                 </div>
                 <div className='edit-input'>
                     <h4>Age: </h4>
-                    <input type='text' name='age' onChange={handleChange} />
+                    <input type='text' name='age' placeholder={props.friend.age} onChange={handleChange} />
                 </div>
                 <div className='edit-input'>
                     <h4>Email: </h4>
-                    <input type='email' name='email' onChange={handleChange} />
+                    <input type='email' name='email' placeholder={props.friend.email} onChange={handleChange} />
                 </div>
                 <div className='edit-buttons'>
                 <button onClick={ submitEdit}>Submit</button>
