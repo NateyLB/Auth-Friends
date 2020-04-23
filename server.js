@@ -6,6 +6,14 @@ const app = express();
 const token =
   'esfeyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NUIhkufemQifQ';
 
+  const path = require("path");
+//don't forget to npm install -s path
+
+app.use(express.static(path.resolve(__dirname, "client", "build")));
+app.get("/", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+}); 
+
 let nextId = 7;
 
 let friends = [
